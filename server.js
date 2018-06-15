@@ -30,7 +30,9 @@ app.get('/reviews/:id', (req, res) => {
     .then((response) => {
       res.send(response)
     })
-    .catch((err) => throw new Error(err))
+    .catch((err) => {
+      throw err
+    })
 })
 app.get('/reviews/public/:file', (req, res) => {
   request(`http://localhost:3002${req.url}`, (error, response, body) => {
